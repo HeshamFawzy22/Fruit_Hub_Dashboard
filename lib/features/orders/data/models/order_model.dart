@@ -6,6 +6,7 @@ import 'package:fruits_hub_dashboard/features/orders/domain/entities/order_entit
 class OrderModel {
   final String uId;
   final String orderId;
+  final String name;
   final double totalPrice;
   final ShippingAddressModel shippingAddress;
   final String paymentMethod;
@@ -15,6 +16,7 @@ class OrderModel {
   OrderModel({
     required this.uId,
     required this.orderId,
+    required this.name,
     required this.status,
     required this.totalPrice,
     required this.shippingAddress,
@@ -26,6 +28,7 @@ class OrderModel {
     return {
       'uId': uId,
       'orderId': orderId,
+      'name': name,
       'status': status,
       'totalPrice': totalPrice,
       'shippingAddress': shippingAddress.toJson(),
@@ -38,6 +41,7 @@ class OrderModel {
     return OrderModel(
       uId: json['uId'],
       orderId: json['orderId'],
+      name: ShippingAddressModel.fromJson(json['shippingAddress']).name.toString(),
       status: json['status'],
       totalPrice: json['totalPrice'],
       shippingAddress: ShippingAddressModel.fromJson(json['shippingAddress']),
@@ -52,6 +56,7 @@ class OrderModel {
     return OrderEntity(
       uId: uId,
       orderId: orderId,
+      userName: name,
       status: fetchOrderStatus(),
       totalPrice: totalPrice,
       shippingAddress: shippingAddress,

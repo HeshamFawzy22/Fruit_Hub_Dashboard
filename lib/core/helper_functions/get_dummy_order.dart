@@ -37,11 +37,13 @@ OrderEntity getDummyOrders() {
       products.fold(0.0, (sum, item) => sum + (item.price * item.quantity));
   String uId = 'ORDER123456';
   String orderId = 'ORDER123';
+  String userName = 'هشام فوزى';
   // Create and return the OrderEntity
 
   return OrderEntity(
     uId: uId,
     orderId: orderId,
+    userName: userName,
     status: status,
     totalPrice: totalPrice,
     shippingAddress: shippingAddresses,

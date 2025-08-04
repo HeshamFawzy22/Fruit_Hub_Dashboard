@@ -31,10 +31,7 @@ class OrdersRepoImp implements OrdersRepo {
   Stream<Either<Failure, List<OrderEntity>>> fetchOrders() async* {
     try {
       await for (var data
-          in _databaseService.streamData(path: BackendEndpoint.orders, query: {
-            'orderBy': 'createdAt',
-            'desc': true,
-          })) {
+          in _databaseService.streamData(path: BackendEndpoint.orders)) {
         List<OrderEntity> orders = (data as List<dynamic>)
             .map<OrderEntity>((e) => OrderModel.fromJson(e).toEntity())
             .toList();

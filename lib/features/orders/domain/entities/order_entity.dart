@@ -5,6 +5,7 @@ import 'package:fruits_hub_dashboard/features/orders/data/models/shipping_addres
 class OrderEntity {
   final String uId;
   final String orderId;
+  final String userName;
   final double totalPrice;
   final ShippingAddressModel shippingAddress;
   final String paymentMethod;
@@ -14,6 +15,7 @@ class OrderEntity {
   OrderEntity({
     required this.uId,
     required this.orderId,
+    required this.userName,
     required this.status,
     required this.totalPrice,
     required this.shippingAddress,

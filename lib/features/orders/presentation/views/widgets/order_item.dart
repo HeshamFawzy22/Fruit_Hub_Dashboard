@@ -24,15 +24,13 @@ class OrderItem extends StatelessWidget {
             /// السعر الإجمالي
             Row(
               children: [
-                Text(
-                    'الإجمالي: ${order.totalPrice.toStringAsFixed(2)} ج.م',
+                Text('الإجمالي: ${order.totalPrice.toStringAsFixed(2)} ج.م',
                     style: TextStyles.bold16),
                 const Spacer(),
                 Container(
                   width: 100,
                   decoration: BoxDecoration(
-                      color:
-                          getOrderStatusColor(order.status),
+                      color: getOrderStatusColor(order.status),
                       borderRadius: BorderRadius.circular(4)),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -46,7 +44,14 @@ class OrderItem extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'رقم المستخدم: ${order.uId}',
+              'اسم المستخدم: ${order.userName}',
+              style: TextStyles.bold13.copyWith(
+                color: Colors.grey[500],
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'الرقم: ${order.uId}',
               style: TextStyles.bold13.copyWith(
                 color: Colors.grey[500],
               ),
@@ -135,7 +140,9 @@ class OrderItem extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
-            BuildActionButtons(orderEntity: order,),
+            BuildActionButtons(
+              orderEntity: order,
+            ),
           ],
         ),
       ),
